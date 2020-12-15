@@ -1,0 +1,9 @@
+C:\Projects\IRF_Project\IRF_Project\bin\Debug\IRF_Project.exe.config
+C:\Projects\IRF_Project\IRF_Project\bin\Debug\IRF_Project.exe
+C:\Projects\IRF_Project\IRF_Project\bin\Debug\IRF_Project.pdb
+C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.csprojAssemblyReference.cache
+C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.Properties.Resources.resources
+C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.csproj.GenerateResource.cache
+C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.csproj.CoreCompileInputs.cache
+C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.exe
+C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.pdb
