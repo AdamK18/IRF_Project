@@ -16,34 +16,64 @@ namespace IRF_Project
     public partial class Form1 : Form
     {
         List<Student> students = new List<Student>();
-        List<Shape> shapes = new List<Shape>(); class YourItem
-        {
-            public string UserName { get; set; }
-            public string UserId { get; set; }
-        }
+        List<Shape> shapes = new List<Shape>();
+        List<Button> buttons = new List<Button>();
 
-        class listClass
-        {
-            public string name;
-            public string id;
-        }
+        public int initialxOffset = 250;
+        public int initialyOffset = 50;
+        public int xOffset;
+        public int yOffset;
+        public int buttonSize = 30;
+        public int gap = 10;
 
         public Form1()
         {
             InitializeComponent();
             ReadData();
             TestData();
-            AppendList();
+            xOffset = initialxOffset;
+            yOffset = initialyOffset;
         }
 
-        private void AppendList()
+        private void list_students_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (Student student in students)
+            foreach (Button button in buttons)
             {
-                list_students.Items.Add(new KeyValuePair<string, int>(student.name, student.id));
+                this.Controls.Remove(button);
             }
-            list_students.DisplayMember = "key";
-            list_students.ValueMember = "value";
+            buttons = new List<Button>();
+            ReAlignBUttons();
+        }
+
+        private void ReAlignBUttons()
+        {
+            Student currentStudent = students[list_students.SelectedIndex];
+            for (int i = 0; i < currentStudent.shape.Data.Count(); i++)
+            {
+                string[] line = currentStudent.shape.Data[i];
+                label_shape.Text = currentStudent.shape.name;
+                label_shape.Left = initialxOffset + currentStudent.shape.dimensions * (buttonSize + gap) / 2 - label_shape.Width / 2 - gap / 2;
+                for (int j = 0; j < line.Length; j++)
+                {
+                    if (line[j] == "x")
+                    {
+                        Button button = new Button
+                        {
+                            Left = xOffset,
+                            Top = yOffset,
+                            Width = buttonSize,
+                            Height = buttonSize
+                        };
+                        buttons.Add(button);
+                        this.Controls.Add(button);
+                    }
+                    xOffset += buttonSize + gap;
+                }
+                xOffset = initialxOffset;
+                yOffset += buttonSize + gap;
+            }
+            xOffset = initialxOffset;
+            yOffset = initialyOffset;
         }
 
         private void ReadData()
@@ -68,6 +98,17 @@ namespace IRF_Project
                 students.Add(new Student(name, shape, id));
                 id++;
             }
+            AppendList();
+        }
+
+        private void AppendList()
+        {
+            foreach (Student student in students)
+            {
+                list_students.Items.Add(new KeyValuePair<string, int>(student.name, student.id));
+            }
+            list_students.DisplayMember = "key";
+            list_students.ValueMember = "value";
         }
 
         private void TestData()
