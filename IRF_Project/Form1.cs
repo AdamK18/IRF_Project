@@ -40,6 +40,20 @@ namespace IRF_Project
                 shapes.Add(shape);
                 students.Add(new Student(name, shape));
             }
+            foreach (Student student in students)
+            {
+                Trace.WriteLine(student.name);
+                Trace.WriteLine(student.shape.name + " " + student.shape.dimensions);
+                for (int i = 0; i < student.shape.Data.Count(); i++)
+                {
+                    for (int j = 0; j < student.shape.Data[i].Count(); j++)
+                    {
+                        Trace.Write(student.shape.Data[i][j]);
+                    }
+                    Trace.WriteLine("");
+                }
+                Trace.WriteLine("");
+            }
         }
     }
 }
