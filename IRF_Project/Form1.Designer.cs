@@ -108,10 +108,13 @@
             // 
             // textbox_grade
             // 
+            this.textbox_grade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(65)))));
+            this.textbox_grade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(201)))), ((int)(((byte)(14)))));
             this.textbox_grade.Location = new System.Drawing.Point(52, 486);
             this.textbox_grade.Name = "textbox_grade";
             this.textbox_grade.Size = new System.Drawing.Size(55, 20);
             this.textbox_grade.TabIndex = 6;
+            this.textbox_grade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
