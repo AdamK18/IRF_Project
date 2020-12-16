@@ -15,6 +15,7 @@ namespace IRF_Project
 {
     public partial class Form1 : Form
     {
+        List<Student> students = new List<Student>();
         List<Shape> shapes = new List<Shape>();
 
         public Form1()
@@ -24,28 +25,20 @@ namespace IRF_Project
             StreamReader sr = new StreamReader("data.csv");
             while (!sr.EndOfStream)
             {
+                List<string[]> data = new List<string[]>();
+                string name = sr.ReadLine();
+
                 string[] line = sr.ReadLine().Split(',');
                 Shape shape = new Shape(line[0], int.Parse(line[1]));
-                List<string[]> data = new List<string[]>();
+
                 for (int i = 0; i < shape.dimensions; i++)
                 {
                     data.Add(sr.ReadLine().Split(','));
                 }
                 shape.Data = data;
+
                 shapes.Add(shape);
-            }
-            foreach(Shape shape in shapes)
-            {
-                Trace.WriteLine(shape.Data.Count());
-                for (int i = 0; i < shape.Data.Count(); i++)
-                {
-                    for (int j = 0; j < shape.Data[i].Count(); j++)
-                    {
-                        Trace.Write(shape.Data[i][j]);
-                    }
-                    Console.WriteLine();
-                }
-                Console.WriteLine();
+                students.Add(new Student(name, shape));
             }
         }
     }

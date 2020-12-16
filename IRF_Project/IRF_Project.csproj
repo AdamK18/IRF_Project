@@ -57,6 +57,7 @@
     <Compile Include="Shape.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Student.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
