@@ -7,3 +7,4 @@ C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.csproj.GenerateResourc
 C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.csproj.CoreCompileInputs.cache
 C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.exe
 C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.pdb
+C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.Form1.resources

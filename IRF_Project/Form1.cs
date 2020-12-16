@@ -16,13 +16,40 @@ namespace IRF_Project
     public partial class Form1 : Form
     {
         List<Student> students = new List<Student>();
-        List<Shape> shapes = new List<Shape>();
+        List<Shape> shapes = new List<Shape>(); class YourItem
+        {
+            public string UserName { get; set; }
+            public string UserId { get; set; }
+        }
+
+        class listClass
+        {
+            public string name;
+            public string id;
+        }
 
         public Form1()
         {
             InitializeComponent();
+            ReadData();
+            TestData();
+            AppendList();
+        }
 
+        private void AppendList()
+        {
+            foreach (Student student in students)
+            {
+                list_students.Items.Add(new KeyValuePair<string, int>(student.name, student.id));
+            }
+            list_students.DisplayMember = "key";
+            list_students.ValueMember = "value";
+        }
+
+        private void ReadData()
+        {
             StreamReader sr = new StreamReader("data.csv");
+            int id = 0;
             while (!sr.EndOfStream)
             {
                 List<string[]> data = new List<string[]>();
@@ -38,8 +65,13 @@ namespace IRF_Project
                 shape.Data = data;
 
                 shapes.Add(shape);
-                students.Add(new Student(name, shape));
+                students.Add(new Student(name, shape, id));
+                id++;
             }
+        }
+
+        private void TestData()
+        {
             foreach (Student student in students)
             {
                 Trace.WriteLine(student.name);

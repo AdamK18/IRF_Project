@@ -28,13 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.list_students = new System.Windows.Forms.ListBox();
+            this.label_students = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // list_students
+            // 
+            this.list_students.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(65)))));
+            this.list_students.ForeColor = System.Drawing.Color.White;
+            this.list_students.FormattingEnabled = true;
+            this.list_students.Location = new System.Drawing.Point(12, 41);
+            this.list_students.Name = "list_students";
+            this.list_students.Size = new System.Drawing.Size(130, 394);
+            this.list_students.TabIndex = 0;
+            // 
+            // label_students
+            // 
+            this.label_students.AutoSize = true;
+            this.label_students.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_students.ForeColor = System.Drawing.Color.White;
+            this.label_students.Location = new System.Drawing.Point(40, 9);
+            this.label_students.Name = "label_students";
+            this.label_students.Size = new System.Drawing.Size(74, 29);
+            this.label_students.TabIndex = 1;
+            this.label_students.Text = "Students";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(71)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label_students);
+            this.Controls.Add(this.list_students);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox list_students;
+        private System.Windows.Forms.Label label_students;
     }
 }
 

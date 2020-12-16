@@ -10,11 +10,13 @@ namespace IRF_Project
     {
         public string name;
         public Shape shape;
+        public int id;
 
-        public Student(string name, Shape shape)
+        public Student(string name, Shape shape, int id)
         {
             this.name = name;
             this.shape = shape;
+            this.id = id;
         }
     }
 }
