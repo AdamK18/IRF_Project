@@ -180,7 +180,7 @@ namespace IRF_Project
                 xlSheet = xlWB.ActiveSheet;
                 
                 CreateTable();
-                
+
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
             }
@@ -202,9 +202,11 @@ namespace IRF_Project
              "Name",
              "Grade",
             "Handed in late"};
+
             xlSheet.Cells[1, 1] = headers[0];
             xlSheet.Cells[1, 2] = headers[1];
             xlSheet.Cells[1, 3] = headers[2];
+
             for (int i = 0; i < grades.Count; i++)
             {
                 xlSheet.Cells[i + 2, 1] = grades[i].student.name;
@@ -218,6 +220,45 @@ namespace IRF_Project
                     xlSheet.Cells[i + 2, 3] = "false";
                 }
             }
+
+            FormatTable(headers);
+        }
+
+        private void FormatTable(string[] headers)
+        {
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.Interior.Color = Color.Gray;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+
+            Excel.Range contentRange = xlSheet.get_Range(GetCell(2, 1), GetCell(students.Count+1, 3));
+            contentRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            contentRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            contentRange.EntireColumn.AutoFit();
+            contentRange.Interior.Color = Color.LightGray;
+            contentRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+        }
+
+        private string GetCell(int x, int y)
+        {
+            string ExcelCoordinate = "";
+            int dividend = y;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+            ExcelCoordinate += x.ToString();
+
+            return ExcelCoordinate;
         }
     }
 }
