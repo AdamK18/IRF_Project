@@ -166,6 +166,7 @@ namespace IRF_Project
             catch (Exception)
             {
                 MessageBox.Show("Please enter a number!");
+                return;
             }
             grades[list_students.SelectedIndex].grade = int.Parse(input);
             label_grade.Text = "Grade: " + grades[list_students.SelectedIndex].grade;
