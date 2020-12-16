@@ -200,13 +200,23 @@ namespace IRF_Project
         {
             string[] headers = new string[] {
              "Name",
-             "Grade"};
+             "Grade",
+            "Handed in late"};
             xlSheet.Cells[1, 1] = headers[0];
             xlSheet.Cells[1, 2] = headers[1];
+            xlSheet.Cells[1, 3] = headers[2];
             for (int i = 0; i < grades.Count; i++)
             {
                 xlSheet.Cells[i + 2, 1] = grades[i].student.name;
                 xlSheet.Cells[i + 2, 2] = grades[i].grade;
+                if (grades[i].student.late)
+                {
+                    xlSheet.Cells[i + 2, 3] = "true";
+                }
+                else
+                {
+                    xlSheet.Cells[i + 2, 3] = "false";
+                }
             }
         }
     }
