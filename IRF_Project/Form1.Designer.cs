@@ -100,7 +100,7 @@
             this.label_grade.AutoSize = true;
             this.label_grade.Font = new System.Drawing.Font("Myanmar Text", 12F);
             this.label_grade.ForeColor = System.Drawing.Color.White;
-            this.label_grade.Location = new System.Drawing.Point(717, 9);
+            this.label_grade.Location = new System.Drawing.Point(714, 9);
             this.label_grade.Name = "label_grade";
             this.label_grade.Size = new System.Drawing.Size(58, 29);
             this.label_grade.TabIndex = 5;

@@ -83,7 +83,7 @@ namespace IRF_Project
 
         private void ReadData()
         {
-            StreamReader sr = new StreamReader("data.csv");
+            StreamReader sr = new StreamReader("data/data.csv");
             int id = 0;
             while (!sr.EndOfStream)
             {
