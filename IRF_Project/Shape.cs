@@ -9,14 +9,21 @@ namespace IRF_Project
 {
     class Shape : Button
     {
-        private string name;
-        private string[][] data;
-        private int dimensions;
+        public string name;
+        public int dimensions;
+        private List<string[]> _data;
+        public List<string[]> Data
+        {
+            get { return _data; }
+            set
+            {
+                _data = value;
+            }
+        }
 
-        public Shape(string name, string[][] data, int dimensions)
+        public Shape(string name, int dimensions)
         {
             this.name = name;
-            this.data = data;
             this.dimensions = dimensions;
         }
     }
