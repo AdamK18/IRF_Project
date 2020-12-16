@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 
 namespace IRF_Project
@@ -21,6 +23,10 @@ namespace IRF_Project
         List<Shape> shapes = new List<Shape>();
         List<Button> buttons = new List<Button>();
         List<Grade> grades = new List<Grade>();
+
+        Excel.Application xlApp;
+        Excel.Workbook xlWB;
+        Excel.Worksheet xlSheet;
 
         public int initialxOffset = 250;
         public int initialyOffset = 80;
@@ -44,17 +50,6 @@ namespace IRF_Project
             label_grade.Text = "Grade:";
             xOffset = initialxOffset;
             yOffset = initialyOffset;
-        }
-
-        private void list_students_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            foreach (Button button in buttons)
-            {
-                this.Controls.Remove(button);
-            }
-            buttons = new List<Button>();
-            ReAlignBUttons();
-            init();
         }
 
         private void ReAlignBUttons()
@@ -104,10 +99,12 @@ namespace IRF_Project
                 }
                 shape.Data = data;
 
-                shapes.Add(shape);
                 Student student = new Student(student_data[0], shape, id, Convert.ToBoolean(student_data[1]));
+                Grade grade = new Grade(student);
+
+                grades.Add(grade);
+                shapes.Add(shape);
                 students.Add(student);
-                grades.Add(new Grade(student));
                 id++;
             }
             AppendList();
@@ -141,6 +138,17 @@ namespace IRF_Project
             }
         }
 
+        private void list_students_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Button button in buttons)
+            {
+                this.Controls.Remove(button);
+            }
+            buttons = new List<Button>();
+            ReAlignBUttons();
+            init();
+        }
+
         private void button_grade_Click(object sender, EventArgs e)
         {
             if(list_students.SelectedIndex.ToString() == "-1")
@@ -162,6 +170,44 @@ namespace IRF_Project
             grades[list_students.SelectedIndex].grade = int.Parse(input);
             label_grade.Text = "Grade: " + grades[list_students.SelectedIndex].grade;
             Trace.WriteLine(grades[list_students.SelectedIndex].grade);
+        }
+
+        private void button_export_Click(object sender, EventArgs e)
+        {
+            try { 
+                xlApp = new Excel.Application();
+                xlWB = xlApp.Workbooks.Add(Missing.Value);
+                xlSheet = xlWB.ActiveSheet;
+                
+                CreateTable();
+                
+                xlApp.Visible = true;
+                xlApp.UserControl = true;
+            }
+            catch (Exception ex)
+            {
+                string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+                MessageBox.Show(errMsg, "Error");
+                
+                xlWB.Close(false, Type.Missing, Type.Missing);
+                xlApp.Quit();
+                xlWB = null;
+                xlApp = null;
+            }
+        }
+
+        private void CreateTable()
+        {
+            string[] headers = new string[] {
+             "Name",
+             "Grade"};
+            xlSheet.Cells[1, 1] = headers[0];
+            xlSheet.Cells[1, 2] = headers[1];
+            for (int i = 0; i < grades.Count; i++)
+            {
+                xlSheet.Cells[i + 2, 1] = grades[i].student.name;
+                xlSheet.Cells[i + 2, 2] = grades[i].grade;
+            }
         }
     }
 }

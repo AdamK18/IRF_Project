@@ -8,3 +8,4 @@ C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.csproj.CoreCompileInpu
 C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.exe
 C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.pdb
 C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.Form1.resources
+C:\Projects\IRF_Project\IRF_Project\obj\Debug\IRF_Project.csproj.ResolveComReference.cache

@@ -93,6 +93,7 @@
             this.button_export.TabIndex = 4;
             this.button_export.Text = "Export to Excel";
             this.button_export.UseVisualStyleBackColor = false;
+            this.button_export.Click += new System.EventHandler(this.button_export_Click);
             // 
             // label_grade
             // 
