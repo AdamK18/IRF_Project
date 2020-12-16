@@ -11,12 +11,14 @@ namespace IRF_Project
         public string name;
         public Shape shape;
         public int id;
+        public bool late;
 
-        public Student(string name, Shape shape, int id)
+        public Student(string name, Shape shape, int id, bool late)
         {
             this.name = name;
             this.shape = shape;
             this.id = id;
+            this.late = late;
         }
     }
 }

@@ -1,4 +1,4 @@
-Lillia Mckeown
+Lillia Mckeown,false
 Oszlop,10
  , , , ,x,x, , , , 
  , , , ,x,x, , , , 
@@ -10,7 +10,7 @@ Oszlop,10
  , , , ,x,x, , , , 
  , , , ,x,x, , , , 
  , , , ,x,x, , , , 
-Mea Mathews
+Mea Mathews,true
 Vonal,10
  , , , , , , , , , 
  , , , , , , , , , 
@@ -22,7 +22,7 @@ x,x,x,x,x,x,x,x,x,x
  , , , , , , , , , 
  , , , , , , , , , 
  , , , , , , , , , 
-Huseyin Sandoval
+Huseyin Sandoval,false
 Kereszt,10
  , , , ,x,x, , , , 
  , , , ,x,x, , , , 
@@ -34,7 +34,7 @@ x,x,x,x,x,x,x,x,x,x
  , , , ,x,x, , , , 
  , , , ,x,x, , , , 
  , , , ,x,x, , , , 
-Kye Daniels
+Kye Daniels,false
 Négyzet,10
 x,x,x,x,x,x,x,x,x,x
 x, , , , , , , , ,x
@@ -46,7 +46,7 @@ x, , , , , , , , ,x
 x, , , , , , , , ,x
 x, , , , , , , , ,x
 x,x,x,x,x,x,x,x,x,x
-Franklin Cano
+Franklin Cano,true
 X,11
 x, , , , , , , , , ,x
  ,x, , , , , , , ,x, 
@@ -59,7 +59,7 @@ x, , , , , , , , , ,x
  , ,x, , , , , ,x, , 
  ,x, , , , , , , ,x, 
 x, , , , , , , , , ,x
-Hiba Giles
+Hiba Giles,true
 Rombusz,11
  , , , , ,x, , , , , 
  , , , ,x, ,x, , , , 
@@ -72,7 +72,7 @@ x, , , , , , , , , ,x
  , , ,x, , , ,x, , , 
  , , , ,x, ,x, , , , 
  , , , , ,x, , , , , 
-Seren Laing
+Seren Laing,false
 Háromszög,11
  , , , , , , , , , , 
  , , , , , , , , , , 
@@ -85,7 +85,7 @@ x,x,x,x,x,x,x,x,x,x,x
  , , , , , , , , , , 
  , , , , , , , , , , 
  , , , , , , , , , , 
-Kianna Shah
+Kianna Shah,false
 Téglalap,11
  , , , , , , , , , , 
  , , , , , , , , , , 
@@ -98,7 +98,7 @@ x,x,x,x,x,x,x,x,x,x,x
  , , , , , , , , , , 
  , , , , , , , , , , 
  , , , , , , , , , , 
-Rylee Seymour
+Rylee Seymour,false
 Nyíl,11
  , , , , , , , , , , 
  , , , , ,x, , , , , 
@@ -111,7 +111,7 @@ x,x,x,x,x, ,x,x,x,x,x
  , , , ,x, ,x, , , , 
  , , , ,x,x,x, , , , 
  , , , , , , , , , , 
-Rahima Mohammed
+Rahima Mohammed,true
 Célkereszt,11
 x,x,x,x,x,x,x,x,x,x,x
 x, , , , ,x, , , , ,x

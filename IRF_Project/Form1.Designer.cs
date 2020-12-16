@@ -31,6 +31,10 @@
             this.list_students = new System.Windows.Forms.ListBox();
             this.label_students = new System.Windows.Forms.Label();
             this.label_shape = new System.Windows.Forms.Label();
+            this.button_grade = new System.Windows.Forms.Button();
+            this.button_export = new System.Windows.Forms.Button();
+            this.label_grade = new System.Windows.Forms.Label();
+            this.textbox_grade = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // list_students
@@ -67,12 +71,57 @@
             this.label_shape.Text = "Shape";
             this.label_shape.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button_grade
+            // 
+            this.button_grade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(65)))));
+            this.button_grade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(201)))), ((int)(((byte)(14)))));
+            this.button_grade.Location = new System.Drawing.Point(31, 450);
+            this.button_grade.Name = "button_grade";
+            this.button_grade.Size = new System.Drawing.Size(100, 30);
+            this.button_grade.TabIndex = 3;
+            this.button_grade.Text = "Add grade";
+            this.button_grade.UseVisualStyleBackColor = false;
+            this.button_grade.Click += new System.EventHandler(this.button_grade_Click);
+            // 
+            // button_export
+            // 
+            this.button_export.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(65)))));
+            this.button_export.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(201)))), ((int)(((byte)(14)))));
+            this.button_export.Location = new System.Drawing.Point(31, 519);
+            this.button_export.Name = "button_export";
+            this.button_export.Size = new System.Drawing.Size(100, 30);
+            this.button_export.TabIndex = 4;
+            this.button_export.Text = "Export to Excel";
+            this.button_export.UseVisualStyleBackColor = false;
+            // 
+            // label_grade
+            // 
+            this.label_grade.AutoSize = true;
+            this.label_grade.Font = new System.Drawing.Font("Myanmar Text", 12F);
+            this.label_grade.ForeColor = System.Drawing.Color.White;
+            this.label_grade.Location = new System.Drawing.Point(717, 9);
+            this.label_grade.Name = "label_grade";
+            this.label_grade.Size = new System.Drawing.Size(58, 29);
+            this.label_grade.TabIndex = 5;
+            this.label_grade.Text = "Grade:";
+            // 
+            // textbox_grade
+            // 
+            this.textbox_grade.Location = new System.Drawing.Point(52, 486);
+            this.textbox_grade.Name = "textbox_grade";
+            this.textbox_grade.Size = new System.Drawing.Size(55, 20);
+            this.textbox_grade.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(71)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.textbox_grade);
+            this.Controls.Add(this.label_grade);
+            this.Controls.Add(this.button_export);
+            this.Controls.Add(this.button_grade);
             this.Controls.Add(this.label_shape);
             this.Controls.Add(this.label_students);
             this.Controls.Add(this.list_students);
@@ -88,6 +137,10 @@
         private System.Windows.Forms.ListBox list_students;
         private System.Windows.Forms.Label label_students;
         private System.Windows.Forms.Label label_shape;
+        private System.Windows.Forms.Button button_grade;
+        private System.Windows.Forms.Button button_export;
+        private System.Windows.Forms.Label label_grade;
+        private System.Windows.Forms.TextBox textbox_grade;
     }
 }
 

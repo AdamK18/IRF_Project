@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+
 
 namespace IRF_Project
 {
@@ -18,9 +20,10 @@ namespace IRF_Project
         List<Student> students = new List<Student>();
         List<Shape> shapes = new List<Shape>();
         List<Button> buttons = new List<Button>();
+        List<Grade> grades = new List<Grade>();
 
         public int initialxOffset = 250;
-        public int initialyOffset = 50;
+        public int initialyOffset = 80;
         public int xOffset;
         public int yOffset;
         public int buttonSize = 30;
@@ -31,6 +34,14 @@ namespace IRF_Project
             InitializeComponent();
             ReadData();
             TestData();
+            init();
+        }
+
+        private void init()
+        {
+            Button grade = button_grade;
+            Button export = button_export;
+            label_grade.Text = "Grade:";
             xOffset = initialxOffset;
             yOffset = initialyOffset;
         }
@@ -43,6 +54,7 @@ namespace IRF_Project
             }
             buttons = new List<Button>();
             ReAlignBUttons();
+            init();
         }
 
         private void ReAlignBUttons()
@@ -72,8 +84,6 @@ namespace IRF_Project
                 xOffset = initialxOffset;
                 yOffset += buttonSize + gap;
             }
-            xOffset = initialxOffset;
-            yOffset = initialyOffset;
         }
 
         private void ReadData()
@@ -83,7 +93,7 @@ namespace IRF_Project
             while (!sr.EndOfStream)
             {
                 List<string[]> data = new List<string[]>();
-                string name = sr.ReadLine();
+                string[] student_data = sr.ReadLine().Split(',');
 
                 string[] line = sr.ReadLine().Split(',');
                 Shape shape = new Shape(line[0], int.Parse(line[1]));
@@ -95,7 +105,9 @@ namespace IRF_Project
                 shape.Data = data;
 
                 shapes.Add(shape);
-                students.Add(new Student(name, shape, id));
+                Student student = new Student(student_data[0], shape, id, Convert.ToBoolean(student_data[1]));
+                students.Add(student);
+                grades.Add(new Grade(student));
                 id++;
             }
             AppendList();
@@ -127,6 +139,29 @@ namespace IRF_Project
                 }
                 Trace.WriteLine("");
             }
+        }
+
+        private void button_grade_Click(object sender, EventArgs e)
+        {
+            if(list_students.SelectedIndex.ToString() == "-1")
+            {
+                MessageBox.Show("Please select a student");
+                return;
+            }
+            int grade = 0;
+            string input = "";
+            try
+            {
+                input = textbox_grade.Text.ToString();
+                grade = int.Parse(textbox_grade.Text.ToString());
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please enter a number!");
+            }
+            grades[list_students.SelectedIndex].grade = int.Parse(input);
+            label_grade.Text = "Grade: " + grades[list_students.SelectedIndex].grade;
+            Trace.WriteLine(grades[list_students.SelectedIndex].grade);
         }
     }
 }
